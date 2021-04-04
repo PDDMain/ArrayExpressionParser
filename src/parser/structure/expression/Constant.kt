@@ -1,13 +1,11 @@
 package parser.structure.expression
 
 import parser.structure.exception.TypeException
+import java.math.BigInteger
 
-class Constant(private val value: Int): Expression {
-    override fun evaluateBool(element: Int): Boolean {
-        throw TypeException()
-    }
+class Constant(private val value: BigInteger): Expression<BigInteger> {
 
-    override fun evaluateInt(element: Int): Int {
+    override fun evaluate(element: BigInteger): BigInteger {
         return value
     }
 

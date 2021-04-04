@@ -1,6 +1,7 @@
 package parser.structure.expression
 
-interface Expression {
-    fun evaluateBool(element: Int) : Boolean
-    fun evaluateInt(element: Int) : Int
+import java.math.BigInteger
+
+interface Expression<T> {
+    fun evaluate(element: BigInteger) : T
 }

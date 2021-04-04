@@ -1,8 +1,8 @@
 package parser.structure.operators.implement
 
-import parser.structure.operators.BoolsToBoolOperator
+import parser.structure.operators.Operator
 
-enum class BoolsToBoolOperatorImpl : BoolsToBoolOperator {
+enum class BoolsToBoolOperatorImpl : Operator<Boolean, Boolean> {
     AND {
         override fun apply(a: Boolean, b: Boolean): Boolean = a && b
         override fun toString(): String = "&"

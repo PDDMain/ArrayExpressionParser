@@ -1,13 +1,10 @@
 package parser.structure.expression
 
 import parser.structure.exception.TypeException
+import java.math.BigInteger
 
-class Element: Expression {
-    override fun evaluateBool(element: Int): Boolean {
-        throw TypeException()
-    }
-
-    override fun evaluateInt(element: Int): Int {
+class Element: Expression<BigInteger> {
+    override fun evaluate(element: BigInteger): BigInteger {
         return element
     }
 
