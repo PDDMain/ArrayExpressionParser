@@ -1,9 +1,6 @@
 package parser.parser
 
-import parser.structure.operators.implement.BoolsToBoolOperatorImpl
 import java.lang.StringBuilder
-import java.math.BigInteger
-import parser.structure.operators.Operator as Operator
 
 class ArrayParserSource(val line: String) {
     private var pos = 0

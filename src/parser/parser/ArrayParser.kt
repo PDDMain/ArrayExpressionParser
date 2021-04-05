@@ -11,10 +11,9 @@ import parser.structure.expression.Constant
 import parser.structure.expression.Element
 import parser.structure.expression.Expression
 import parser.structure.operators.implement.BoolsToBoolOperatorImpl
-import parser.structure.operators.implement.NumbersToBoolsOperatorImpl
+import parser.structure.operators.implement.NumbersToBoolOperatorImpl
 import parser.structure.operators.implement.NumbersToNumberOperatorImpl
 import java.math.BigInteger
-import java.util.*
 
 class ArrayParser {
     fun parse(line: String): CallChain {
@@ -128,11 +127,11 @@ class ArrayParser {
             }
         }
 
-        private fun parseNumbersToBoolOperator(): NumbersToBoolsOperatorImpl {
+        private fun parseNumbersToBoolOperator(): NumbersToBoolOperatorImpl {
             return when {
-                test("=") -> NumbersToBoolsOperatorImpl.EQUALS
-                test(">") -> NumbersToBoolsOperatorImpl.MORE_THAN
-                test("<") ->NumbersToBoolsOperatorImpl.LESS_THAN
+                test("=") -> NumbersToBoolOperatorImpl.EQUALS
+                test(">") -> NumbersToBoolOperatorImpl.MORE_THAN
+                test("<") ->NumbersToBoolOperatorImpl.LESS_THAN
                 else -> throw SyntaxParserException("Operation not expected")
             }
         }

@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.Test
-import parser.structure.CallChain
 import parser.structure.callchain.CallChainImpl
 import parser.structure.callchain.call.Filter
 import parser.structure.callchain.call.Mapper
@@ -7,7 +6,7 @@ import parser.structure.expression.Constant
 import parser.structure.expression.Element
 import parser.structure.expression.Expression
 import parser.structure.operators.implement.BoolsToBoolOperatorImpl
-import parser.structure.operators.implement.NumbersToBoolsOperatorImpl
+import parser.structure.operators.implement.NumbersToBoolOperatorImpl
 import parser.structure.operators.implement.NumbersToNumberOperatorImpl
 import java.lang.StringBuilder
 import java.math.BigInteger
@@ -34,12 +33,12 @@ class StructureTest {
                         Filter(BinaryExpression(
                                 BoolsToBoolOperatorImpl.AND,
                                 BinaryExpression(
-                                        NumbersToBoolsOperatorImpl.MORE_THAN,
+                                        NumbersToBoolOperatorImpl.MORE_THAN,
                                         Element(),
                                         Constant(BigInteger.valueOf(10))
                                 ),
                                 BinaryExpression(
-                                        NumbersToBoolsOperatorImpl.LESS_THAN,
+                                        NumbersToBoolOperatorImpl.LESS_THAN,
                                         Element(),
                                         Constant(BigInteger.valueOf(20))
                                 )
