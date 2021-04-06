@@ -6,7 +6,7 @@ import java.math.BigInteger
 import java.util.*
 import java.util.stream.Collectors
 
-class Filter(private val expression: Expression<Boolean>) : Call {
+class Filter(val expression: Expression<Boolean>) : Call {
     override fun evaluate(arr: List<BigInteger>): List<BigInteger> {
         return arr.stream()
                 .filter { x -> expression.evaluate(x)}

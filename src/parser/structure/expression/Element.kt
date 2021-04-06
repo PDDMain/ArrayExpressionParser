@@ -1,6 +1,5 @@
 package parser.structure.expression
 
-import parser.structure.exception.TypeException
 import java.math.BigInteger
 
 class Element: Expression<BigInteger> {
@@ -10,5 +9,9 @@ class Element: Expression<BigInteger> {
 
     override fun toString(): String {
         return "element"
+    }
+
+    override fun clone(): Expression<BigInteger> {
+        return Element()
     }
 }
