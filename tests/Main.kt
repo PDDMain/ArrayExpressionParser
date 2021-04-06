@@ -1,13 +1,13 @@
-import com.sun.tools.javac.Main
-import parser.structure.callchain.CallChainImpl
-import parser.structure.callchain.call.Filter
-import parser.structure.callchain.call.Mapper
-import parser.structure.expression.BinaryExpression
-import parser.structure.expression.Constant
-import parser.structure.expression.Element
-import parser.structure.operators.implement.BoolsToBoolOperatorImpl
-import parser.structure.operators.implement.NumbersToBoolOperatorImpl
-import parser.structure.operators.implement.NumbersToNumberOperatorImpl
+package array.expression
+
+import array.expression.structure.callchain.CallChainImpl
+import array.expression.structure.callchain.call.Filter
+import array.expression.structure.callchain.call.Mapper
+import array.expression.structure.expression.BinaryExpression
+import array.expression.structure.expression.Constant
+import array.expression.structure.expression.Element
+import array.expression.structure.operators.implement.BoolsToBoolOperatorImpl
+import array.expression.structure.operators.implement.NumbersToBoolOperatorImpl
 import java.math.BigInteger
 
 fun main() {
