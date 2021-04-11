@@ -98,4 +98,15 @@ class SimplifyTest {
                         Constant(BigInteger.TWO))).toString()
         )
     }
+
+    @Test
+    fun test05() {
+        assertEquals(
+                Mapper(BinaryExpression(
+                        NumbersToNumberOperatorImpl.SUBTRACT,
+                        Element(),
+                        Constant(BigInteger.ZERO))).toFilterMapper().simplify().mapper.toString(),
+                Mapper(Element()).toString()
+        )
+    }
 }

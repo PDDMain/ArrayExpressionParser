@@ -95,11 +95,11 @@ class SimplifyCastTest {
         }
     }
 
-    @Test
-    fun testHardRandom() {
-        for (pair in Examples().examples) {
-            assert(pair.first
-                    .randomEquals(pair.first.toSimplifyFilterMapper()))
-        }
-    }
+//    @Test
+//    fun testHardRandom() {
+//        for (pair in Examples().examples) {
+//            assert(pair.first
+//                    .randomEquals(pair.first.toSimplifyFilterMapper()))
+//        }
+//    }
 }

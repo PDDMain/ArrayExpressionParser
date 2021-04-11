@@ -159,6 +159,19 @@ class Simplifier() {
         if (expression.right == Constant(BigInteger.ONE) && expression.operator == NumbersToNumberOperatorImpl.MULTIPLY) {
             return expression.left
         }
+        if (expression.left == Constant(BigInteger.ZERO) && expression.operator == NumbersToNumberOperatorImpl.PLUS) {
+            return expression.right
+        }
+        if (expression.right == Constant(BigInteger.ZERO) && expression.operator == NumbersToNumberOperatorImpl.PLUS) {
+            return expression.left
+        }
+        if (expression.right == Constant(BigInteger.ZERO) && expression.operator == NumbersToNumberOperatorImpl.SUBTRACT) {
+            return expression.left
+        }
+        if ((expression.left == Constant(BigInteger.ZERO) || expression.right == Constant(BigInteger.ZERO)) &&
+                expression.operator == NumbersToNumberOperatorImpl.MULTIPLY) {
+            return Constant(BigInteger.ZERO)
+        }
         if (expression.left is BinaryExpression<*, *>) {
             expression.left = simplifyNumbersToNumberExpression(expression.left as BinaryExpression<BigInteger, BigInteger>)
         }
