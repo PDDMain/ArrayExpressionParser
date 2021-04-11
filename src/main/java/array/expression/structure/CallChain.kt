@@ -1,5 +1,6 @@
 package array.expression.structure
 
+import array.expression.simplify.Simplifier
 import array.expression.structure.callchain.CallChainImpl
 import array.expression.structure.callchain.call.Filter
 import array.expression.structure.callchain.call.Mapper
@@ -49,7 +50,7 @@ interface CallChain {
     fun toFilterMapper(): FilterMapper {
         var filterMapper = FilterMapper(
                 Filter(BinaryExpression(
-                        NumbersToBoolOperatorImpl.EQUALS, Element(), Element())),
+                        NumbersToBoolOperatorImpl.EQUALS, Constant(BigInteger.valueOf(0)), Constant(BigInteger.valueOf(0)))),
                 Mapper(Element()))
         var cc = this
         while (cc is CallChainImpl) {

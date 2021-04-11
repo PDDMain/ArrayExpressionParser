@@ -7,14 +7,17 @@ enum class NumbersToNumberOperatorImpl : Operator<BigInteger, BigInteger> {
     PLUS {
         override fun apply(a: BigInteger, b: BigInteger): BigInteger = a + b
         override fun toString(): String = "+"
+        override fun isImplicated(): Boolean = true
     },
     SUBTRACT {
         override fun apply(a: BigInteger, b: BigInteger): BigInteger = a - b
         override fun toString(): String = "-"
+        override fun isImplicated(): Boolean = false
     },
     MULTIPLY {
         override fun apply(a: BigInteger, b: BigInteger): BigInteger = a * b
         override fun toString(): String = "*"
+        override fun isImplicated(): Boolean = true
     };  //  },
 //    DIVIDE {
 //        override fun apply(a: BigInteger, b: BigInteger): BigInteger {
