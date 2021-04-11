@@ -5,7 +5,7 @@ import array.expression.structure.expression.Expression
 import java.math.BigInteger
 import java.util.stream.Collectors
 
-class Filter(val expression: Expression<Boolean>) : Call {
+class Filter(var expression: Expression<Boolean>) : Call {
     override fun evaluate(arr: List<BigInteger>): List<BigInteger> {
         return arr.stream()
                 .filter { x -> expression.evaluate(x)}
