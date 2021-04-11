@@ -46,6 +46,9 @@ interface CallChain {
         return list
     }
 
+    fun toSimplifyFilterMapper(): FilterMapper {
+        return toFilterMapper().simplify()
+    }
 
     fun toFilterMapper(): FilterMapper {
         var filterMapper = FilterMapper(

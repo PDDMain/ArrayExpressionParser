@@ -68,4 +68,34 @@ class SimplifyTest {
                         Constant(BigInteger.ONE))).toString()
         )
     }
+
+    @Test
+    fun test04() {
+        assertEquals(
+                Filter(BinaryExpression(
+                        NumbersToBoolOperatorImpl.LESS_THAN,
+                        BinaryExpression(NumbersToNumberOperatorImpl.MULTIPLY,
+                                BinaryExpression(
+                                        NumbersToNumberOperatorImpl.SUBTRACT,
+                                        Element(),
+                                        Constant(BigInteger.ONE)),
+                                BinaryExpression(
+                                        NumbersToNumberOperatorImpl.SUBTRACT,
+                                        Element(),
+                                        Constant(BigInteger.ONE))),
+                        Constant(BigInteger.TWO))).toFilterMapper().simplify().filter.toString(),
+                Filter(BinaryExpression(
+                        NumbersToBoolOperatorImpl.LESS_THAN,
+                        BinaryExpression(NumbersToNumberOperatorImpl.MULTIPLY,
+                                BinaryExpression(
+                                        NumbersToNumberOperatorImpl.SUBTRACT,
+                                        Element(),
+                                        Constant(BigInteger.ONE)),
+                                BinaryExpression(
+                                        NumbersToNumberOperatorImpl.SUBTRACT,
+                                        Element(),
+                                        Constant(BigInteger.ONE))),
+                        Constant(BigInteger.TWO))).toString()
+        )
+    }
 }

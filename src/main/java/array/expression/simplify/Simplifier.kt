@@ -141,7 +141,7 @@ class Simplifier() {
                 BigInteger.ONE
             }
             is BinaryExpression<*, *> -> {
-                elementsCount(expression.left) + elementsCount(expression.left)
+                elementsCount(expression.left) + elementsCount(expression.right)
             }
             else -> {
                 BigInteger.ZERO
