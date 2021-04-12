@@ -61,9 +61,6 @@ interface CallChain {
             cc = cc.callChain
         }
         filterMapper = nextFilterMapper(cc, filterMapper)
-        if (filterMapper.filter.expression is BinaryExpression<*, *> && (filterMapper.filter.expression as BinaryExpression<Boolean, Boolean>).right is Expression<*>) {
-            filterMapper.filter.expression = (filterMapper.filter.expression as BinaryExpression<Boolean, Boolean>).right
-        }
         return filterMapper
     }
 
@@ -75,10 +72,18 @@ interface CallChain {
                         Mapper(replaceElement(expression, filterMapper.mapper.expression)))
             }
             is Filter -> {
-                val expression = cc.expression
-                FilterMapper(
-                        Filter(BinaryExpression(BoolsToBoolOperatorImpl.AND, filterMapper.filter.expression, replaceBoolsElement(expression, filterMapper.mapper.expression))),
-                        filterMapper.mapper)
+                if (filterMapper.filter.expression == BinaryExpression(
+                                NumbersToBoolOperatorImpl.EQUALS, Constant(BigInteger.valueOf(0)), Constant(BigInteger.valueOf(0)))) {
+                    FilterMapper(
+                            Filter(replaceBoolsElement(
+                                    cc.expression, filterMapper.mapper.expression)),
+                            filterMapper.mapper)
+                } else {
+                    val expression = cc.expression
+                    FilterMapper(
+                            Filter(BinaryExpression(BoolsToBoolOperatorImpl.AND, filterMapper.filter.expression, replaceBoolsElement(expression, filterMapper.mapper.expression))),
+                            filterMapper.mapper)
+                }
             }
             else -> {
                 throw InvalidParameterException()
