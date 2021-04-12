@@ -61,6 +61,9 @@ interface CallChain {
             cc = cc.callChain
         }
         filterMapper = nextFilterMapper(cc, filterMapper)
+        if (filterMapper.filter.expression is BinaryExpression<*, *> && (filterMapper.filter.expression as BinaryExpression<Boolean, Boolean>).right is Expression<*>) {
+            filterMapper.filter.expression = (filterMapper.filter.expression as BinaryExpression<Boolean, Boolean>).right
+        }
         return filterMapper
     }
 
